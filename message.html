@@ -166,10 +166,10 @@
         </div>
         <div class="message-box-input">
             <div class="scroll-control">
-                <a href="#">
+                <a href="#" id='up'>
                     <img src="img/gotop.png" alt="">
                 </a>
-                <a href="#">
+                <a href="#" id='down'>
                     <img src="img/gobottom.png" alt="">
                 </a>
             </div>
@@ -189,11 +189,9 @@
                 </ul>
                 <div class="clearfix"></div>
             </div>
-
             <div class="message-box-input-textarea">
-                <textarea class="form-control" placeholder="請在此輸入訊息...|"></textarea>
+                <textarea class="form-control" id="chat" placeholder="請在此輸入訊息...|"></textarea>
             </div>
-
         </div>
     </div>
 </div>
@@ -202,9 +200,54 @@
 <script src="js/simplebar.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script>
-    new SimpleBar(document.getElementById('message-box-messages'),{
-        autoHide: false
+    $(function() {
+        new SimpleBar(document.getElementById('message-box-messages'),{
+            autoHide: false
+        });
+        $("#up").on("click", function(e) {
+            $(".simplebar-content-wrapper").scrollTop(0);
+            e.preventDefault();
+        });
+        $("#down").on("click", function(e) {
+            $(".simplebar-content-wrapper").scrollTop($(".simplebar-content-wrapper")[0].scrollHeight);
+            e.preventDefault();
+        });
+        $("#chat").on("keyup", function(e) {
+            if (e.keyCode == 13 && !e.shiftKey) {
+                var dt = getNow();
+                var tar = $(".customer-message:last");
+                var obj = $(tar).clone();
+                if ($(tar).index() == ($(".message-group").length-1)) {
+                    $(tar).find(".profile>img").remove();
+                }
+                if ($(tar).find(".message-time").html() == dt) {
+                    $(tar).find(".message-time").remove();
+                }
+                $(obj).find(".message-item-inside").html($(this).val().replace(/(?:\r\n|\r|\n)/g, '<br>'));
+                $(obj).find(".message-time").html(dt);
+                $(obj).appendTo("div.simplebar-content");
+
+                $("#down").trigger("click");
+
+                $(this).val("");
+            }
+        });
     });
+
+    function getNow() {
+        var currentDate = new Date();
+        var date = currentDate.getDate();
+        var month = currentDate.getMonth(); 
+        var year = currentDate.getFullYear();
+        var hours = currentDate.getHours();
+        var minutes = currentDate.getMinutes();
+
+        return year + "-" + pad(month+1) + "-" + pad(date) + ' ' + pad(hours) + ":" + pad(minutes);
+    }
+
+    function pad(n) {
+        return n<10 ? '0'+n : n;
+    }
 </script>
 </body>
 </html>
