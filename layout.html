@@ -51,16 +51,17 @@
                     <div class="row">
                         <div class="col-5">
                             <div class="form-group input-form-group">
+                                <div class="dropzone" id="dropzone" style='display:none'><div class="dz-default dz-message"><span>Drop files here to upload</span></div></div>
                                 <label for="filed3">圖檔上傳：</label>
                                 <div class="input-img-upload">
                                     <img id='preview' src="img/upload-preview.jpg" alt="" class="img-fluid" />
                                 </div>
-                                <input type="file" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+                                <input type="file" class="dz-hidden-input" style="/*visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;*/">
                             </div>
 
                             <div class="form-group input-form-group">
                                 <label for="filed4">圖檔網址：</label>
-                                <input type="text" class="form-control" id="filed4" placeholder="https://">
+                                <input type="text" class="form-control url" placeholder="https://">
                             </div>
                         </div>
                         <div class="col-7">
@@ -68,27 +69,27 @@
                                 <label for="">連結設定：</label>
                                 <div class="link-input">
                                     <img src="img/H1.png" alt="">
-                                    <input type="text" class="form-control" id="" placeholder="https://">
+                                    <input type="text" class="form-control url" placeholder="https://">
                                 </div>
                                 <div class="link-input">
                                     <img src="img/H2.png" alt="">
-                                    <input type="text" class="form-control" id="" placeholder="https://">
+                                    <input type="text" class="form-control url" placeholder="https://">
                                 </div>
                                 <div class="link-input">
                                     <img src="img/H3.png" alt="">
-                                    <input type="text" class="form-control" id="" placeholder="https://">
+                                    <input type="text" class="form-control url" placeholder="https://">
                                 </div>
                                 <div class="link-input">
                                     <img src="img/H4.png" alt="">
-                                    <input type="text" class="form-control" id="" placeholder="https://">
+                                    <input type="text" class="form-control url" placeholder="https://">
                                 </div>
                                 <div class="link-input">
                                     <img src="img/H5.png" alt="">
-                                    <input type="text" class="form-control" id="" placeholder="https://">
+                                    <input type="text" class="form-control url" placeholder="https://">
                                 </div>
                                 <div class="link-input">
                                     <img src="img/H6.png" alt="">
-                                    <input type="text" class="form-control" id="" placeholder="https://">
+                                    <input type="text" class="form-control url" placeholder="https://">
                                 </div>
                             </div>
                         </div>
@@ -136,7 +137,7 @@
                             </select>
                         </div>
                         <div class="col-4">
-                            <input type="text" class="form-control" id="" placeholder="">
+                            <input type="text" class="form-control" placeholder="">
                             <small>請複製貼上到上方文字中你想要的位置即可</small>
                         </div>
                         <div class="col-5 text-right">
@@ -226,8 +227,69 @@
             }
         });
 
+        $(".img-link-setting").on("keyup", "input.url", function(e) {
+            var value = $(this).val();
+            $(this).parent().find("label.error").remove();
+            if (!isURL(value)) {
+                $(this).after("<label class='error'>網址錯誤</label>");
+            }
+            e.stopPropagation();
+        });
+
+        $("#dropzone").on("dragenter", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $("#dropzone").show();
+            $("#dropzone").addClass("dragenter");
+        });
+
+        $("#dropzone").on("dragover", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $("#dropzone").show();
+            if (!$("#dropzone").hasClass("dragenter")) {
+                $("#dropzone").addClass("dragenter");
+            }
+        });
+
+        $("#dropzone").on("dragleave", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $("#dropzone").show();
+            if ($("#dropzone").hasClass("dragenter")) {
+                $("#dropzone").removeClass("dragenter");
+            }
+        });
+
+        $('html').on('dragover', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $("#dropzone").show();
+        });
+
+        $('html').on('dragleave', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if (!$("#dropzone").hasClass("dragenter")) {
+                $("#dropzone").hide();
+            }
+        });
+
+        $('html').on("drop", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            resetDropZone();
+        });
+
+        $("#dropzone").on("drop", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            readURL(e.originalEvent.dataTransfer);
+            resetDropZone();
+        });
+
         moreParagraph();
-        //readURL(e.originalEvent.dataTransfer);
     });
 
     function moreParagraph() {
@@ -260,6 +322,16 @@
             }
             reader.readAsDataURL(input.files[0]);
         }
+    }
+
+    function isURL(url) {
+        var pattern = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+        return pattern.test(url);
+    }
+
+    function resetDropZone() {
+        $("#dropzone").hide();
+        $("#dropzone").removeClass("dragenter");
     }
 </script>
 
