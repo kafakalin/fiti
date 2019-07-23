@@ -6,6 +6,7 @@
     <title>版型設計</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/simplebar.css">
+    <link rel="stylesheet" href="css/dropzone.css">
     <link rel="stylesheet" href="css/dropkick.css">
     <link rel="stylesheet" href="css/fiti.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
@@ -52,9 +53,9 @@
                             <div class="form-group input-form-group">
                                 <label for="filed3">圖檔上傳：</label>
                                 <div class="input-img-upload">
-                                    <img src="img/upload-preview.jpg" alt="" class="img-fluid">
-                                    <input type="file" id="field3" class="d-none">
+                                    <img id='preview' src="img/upload-preview.jpg" alt="" class="img-fluid" />
                                 </div>
+                                <input type="file" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
                             </div>
 
                             <div class="form-group input-form-group">
@@ -204,12 +205,40 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/dropkick.js"></script>
 <script>
-    $("#layout-type").dropkick({
-        mobile: true
+    $(function() {
+        $("#layout-type").dropkick({
+            mobile: true
+        });
+        $("#name-selector").dropkick({
+            mobile: true
+        });
+
+        $(".input-img-upload").on("click", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $(".dz-hidden-input").trigger("click");
+        });
+
+        $(".dz-hidden-input").on("change", function(e){
+            if (!/^$/i.test($(this).val())) {
+                var fd = new FormData();
+                var files = $('.dz-hidden-input')[0].files[0];
+                fd.append('file',files);
+                readURL($('.dz-hidden-input')[0]);   
+            }
+        });
+        //readURL(e.originalEvent.dataTransfer);
     });
-    $("#name-selector").dropkick({
-        mobile: true
-    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 </script>
 
 </body>
