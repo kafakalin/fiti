@@ -101,7 +101,7 @@
                 <div class="input-title">
                     STEP 3.<br><span>編輯訊息內容</span>
                 </div>
-                <div class="form-group input-form-group">
+                <div class="form-group input-form-group" id='paragraph'>
                     <div class="row">
                         <div class="col-3">
                             <select name="" id="layout-type">
@@ -111,20 +111,18 @@
                             </select>
                         </div>
                     </div>
-
-
                     <div class="input-text-content-box">
-                        <input type="text" class="form-control" id="filed5" placeholder="請輸入文字內容">
+                        <input type="text" class="form-control" placeholder="請輸入文字內容">
                         <div class="input-text-content-box-control">
-                            <a href="#"><img src="img/minus.png" alt=""></a>
-                            <a href="#"><img src="img/plus.png" alt=""></a>
+                            <a href="#" class='minus'><img src="img/minus.png" alt=""></a>
+                            <a href="#" class='plus'><img src="img/plus.png" alt=""></a>
                         </div>
                     </div>
                     <div class="input-text-content-box">
-                        <input type="text" class="form-control" id="filed6" placeholder="請輸入文字內容">
+                        <input type="text" class="form-control" placeholder="請輸入文字內容">
                         <div class="input-text-content-box-control">
-                            <a href="#"><img src="img/minus.png" alt=""></a>
-                            <a href="#"><img src="img/plus.png" alt=""></a>
+                            <a href="#" class='minus'><img src="img/minus.png" alt=""></a>
+                            <a href="#" class='plus'><img src="img/plus.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -227,8 +225,32 @@
                 readURL($('.dz-hidden-input')[0]);   
             }
         });
+
+        moreParagraph();
         //readURL(e.originalEvent.dataTransfer);
     });
+
+    function moreParagraph() {
+        $("#paragraph").off("click", "a.minus").on("click", "a.minus", function(e) {
+            e.preventDefault();
+            $(this).parents(".input-text-content-box:first").remove();
+        });
+
+        $("#paragraph").off("click", "a.plus").on("click", "a.plus", function(e) {
+            e.preventDefault();
+            var obj = $("#paragraph").find(".input-text-content-box:last").clone();
+            $(obj).find(":input").val("");
+            $(obj).appendTo($("#paragraph"));
+            moreParagraph();
+        });
+
+        hiddenMinus();
+    }
+
+    function hiddenMinus() {
+        $("#paragraph").find("a.minus").show();
+        $("#paragraph").find(".input-text-content-box:first a.minus").hide();
+    }
 
     function readURL(input) {
         if (input.files && input.files[0]) {
