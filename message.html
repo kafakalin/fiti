@@ -198,6 +198,71 @@
                 <div class="clearfix"></div>
             </div>
             <div class="message-box-input-textarea">
+                <div class="sticker-selector">
+                    <ul class="sticker-list">
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+                        <li>
+                            <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true)" alt="">
+                        </li>
+
+                    </ul>
+                </div>
                 <textarea class="form-control" id="chat" placeholder="請在此輸入訊息...|"></textarea>
                 <input type="file" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
             </div>
@@ -300,6 +365,11 @@
                 uploadData(fd);    
             }
         });
+
+        $('.sticker-face').on('click',function(e){
+            e.preventDefault();
+            $('.sticker-selector').toggleClass('active');
+        })
     });
 
     function sendMessage(tar) {
