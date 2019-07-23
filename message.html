@@ -247,6 +247,15 @@
             }
         });
 
+        $("#dropzone").on("dragleave", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $("#dropzone").show();
+            if ($("#dropzone").hasClass("dragenter")) {
+                $("#dropzone").removeClass("dragenter");
+            }
+        });
+
         $('html').on('dragover', function (e) {
             e.stopPropagation();
             e.preventDefault();
@@ -277,10 +286,12 @@
         });
 
         $(".dz-hidden-input").on("change", function(e){
-            var fd = new FormData();
-            var files = $('.dz-hidden-input')[0].files[0];
-            fd.append('file',files);
-            uploadData(fd);
+            if (!/^$/i.test($(this).val())) {
+                var fd = new FormData();
+                var files = $('.dz-hidden-input')[0].files[0];
+                fd.append('file',files);
+                uploadData(fd);    
+            }
         });
     });
 
