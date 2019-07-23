@@ -6,6 +6,7 @@
     <title>對話視窗</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/simplebar.css">
+    <link rel="stylesheet" href="css/dropzone.css">
     <link rel="stylesheet" href="css/fiti.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 </head>
@@ -185,12 +186,14 @@
                 </ul>
                 <ul class="sticker-menu">
                     <li><a href="#"><img src="img/smiling-emoticon-square-face.png" alt=""></a></li>
-                    <li><a href="#"><img src="img/clip.png" alt=""></a></li>
+                    <li><a href="#" id='selectfile'><img src="img/clip.png" alt=""></a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
             <div class="message-box-input-textarea">
+                <div class="dropzone" id="dropzone" style='display:none'><div class="dz-default dz-message"><span>Drop files here to upload</span></div></div>
                 <textarea class="form-control" id="chat" placeholder="請在此輸入訊息...|"></textarea>
+                <input type="file" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
             </div>
         </div>
     </div>
@@ -200,39 +203,108 @@
 <script src="js/simplebar.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script>
+    var dropzone;
     $(function() {
         new SimpleBar(document.getElementById('message-box-messages'),{
             autoHide: false
         });
+
         $("#up").on("click", function(e) {
             $(".simplebar-content-wrapper").scrollTop(0);
             e.preventDefault();
         });
+
         $("#down").on("click", function(e) {
             $(".simplebar-content-wrapper").scrollTop($(".simplebar-content-wrapper")[0].scrollHeight);
             e.preventDefault();
         });
+
         $("#chat").on("keyup", function(e) {
             if (e.keyCode == 13 && !e.shiftKey) {
-                var dt = getNow();
-                var tar = $(".customer-message:last");
-                var obj = $(tar).clone();
-                if ($(tar).index() == ($(".message-group").length-1)) {
-                    $(tar).find(".profile>img").remove();
-                }
-                if ($(tar).find(".message-time").html() == dt) {
-                    $(tar).find(".message-time").remove();
-                }
-                $(obj).find(".message-item-inside").html($(this).val().replace(/(?:\r\n|\r|\n)/g, '<br>'));
-                $(obj).find(".message-time").html(dt);
-                $(obj).appendTo("div.simplebar-content");
-
-                $("#down").trigger("click");
-
+                sendMessage($(this));
                 $(this).val("");
             }
         });
+
+        $("#selectfile").on("click", function(e) {
+            $(".dz-hidden-input").trigger("click");
+            e.preventDefault();
+        });
+
+        $("#dropzone").on("dragenter", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $("#dropzone").show();
+            $("#dropzone").addClass("dragenter");
+        });
+
+        $("#dropzone").on("dragover", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $("#dropzone").show();
+            if (!$("#dropzone").hasClass("dragenter")) {
+                $("#dropzone").addClass("dragenter");
+            }
+        });
+
+        $('html').on('dragover', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $("#dropzone").show();
+        });
+
+        $('html').on('dragleave', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if (!$("#dropzone").hasClass("dragenter")) {
+                $("#dropzone").hide();
+            }
+        });
+
+        $('html').on("drop", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            resetDropZone();
+        });
+
+        $("#dropzone").on("drop", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var file = e.originalEvent.dataTransfer.files;
+            var fd = new FormData();
+            fd.append('file', file[0]);
+            uploadData(fd);
+        });
+
+        $(".dz-hidden-input").on("change", function(e){
+            var fd = new FormData();
+            var files = $('.dz-hidden-input')[0].files[0];
+            fd.append('file',files);
+            uploadData(fd);
+        });
     });
+
+    function sendMessage(tar) {
+        var msg = $(tar).val().replace(/(?:\r\n|\r|\n)$/, '');
+        if (!/^$/i.test(msg)) {
+            $(obj).attr("readonly", true);
+            var dt = getNow();
+            var tar = $(".customer-message:last");
+            var obj = $(tar).clone();
+            if ($(tar).index() == ($(".message-group").length-1)) {
+                $(tar).find(".profile>img").remove();
+            }
+            if ($(tar).find(".message-time").html() == dt) {
+                $(tar).find(".message-time").remove();
+            }
+            $(obj).find(".message-item-inside").html(msg.replace(/(?:\r\n|\r|\n)/g, '<br>'));
+            $(obj).find(".message-time").html(dt);
+            $(obj).appendTo("div.simplebar-content");
+
+            $(tar).removeAttr("readonly");
+            $("#down").trigger("click");
+        }
+    }
 
     function getNow() {
         var currentDate = new Date();
@@ -245,8 +317,29 @@
         return year + "-" + pad(month+1) + "-" + pad(date) + ' ' + pad(hours) + ":" + pad(minutes);
     }
 
-    function pad(n) {
-        return n<10 ? '0'+n : n;
+    function pad(n) { return n<10 ? '0'+n : n; }
+
+    function uploadData(formdata) {
+        alert("upload successful");
+        resetDropZone();
+        /*  example to upload
+        $.ajax({
+            url: 'upload.php',
+            type: 'post',
+            data: formdata,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            success: function(response){
+                alert(response);
+            }
+        });
+        */
+    }
+
+    function resetDropZone() {
+        $("#dropzone").hide();
+        $("#dropzone").removeClass("dragenter");
     }
 </script>
 </body>
