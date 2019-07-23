@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 </head>
 <body class="message-body">
+<div class="dropzone message-dropzone" id="dropzone" style="display: none;"><div class="dz-default dz-message"><span></span></div></div>
 <div class="message-box">
     <div class="message-box-content">
         <div class="message-box-messages" id="message-box-messages">
@@ -167,12 +168,18 @@
         </div>
         <div class="message-box-input">
             <div class="scroll-control">
-                <a href="#" id='up'>
-                    <img src="img/gotop.png" alt="">
-                </a>
-                <a href="#" id='down'>
-                    <img src="img/gobottom.png" alt="">
-                </a>
+                <div>
+                    <a href="#" id='up'>
+                        <span>GO TOP</span>
+                        <i><img src="img/arrow-t.png" alt=""></i>
+                    </a>
+                </div>
+                <div>
+                    <a href="#" id='down'>
+                        <span>GO DOWN</span>
+                        <i><img src="img/arrow-d.png" alt=""></i>
+                    </a>
+                </div>
             </div>
             <div class="message-box-input-sticker">
                 <ul class="recent-sticker">
@@ -185,13 +192,12 @@
                     <li style="background-image:url(https://stickershop.line-scdn.net/stickershop/v1/sticker/9913440/iPhone/sticker_key@2x.png;compress=true);"></li>
                 </ul>
                 <ul class="sticker-menu">
-                    <li><a href="#"><img src="img/smiling-emoticon-square-face.png" alt=""></a></li>
-                    <li><a href="#" id='selectfile'><img src="img/clip.png" alt=""></a></li>
+                    <li><a href="#" class="sticker-face"></a></li>
+                    <li><a href="#" class="sticker-file" id='selectfile'></a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
             <div class="message-box-input-textarea">
-                <div class="dropzone" id="dropzone" style='display:none'><div class="dz-default dz-message"><span>Drop files here to upload</span></div></div>
                 <textarea class="form-control" id="chat" placeholder="請在此輸入訊息...|"></textarea>
                 <input type="file" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
             </div>

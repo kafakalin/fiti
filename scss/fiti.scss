@@ -5,7 +5,9 @@
   height: 100%;
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 400;
+  overflow-y: hidden;
 }
+
 .message-box{
   width: 460px;
   height: 100%;
@@ -102,10 +104,39 @@
 
 .scroll-control{
   text-align: right;
-  >a{
-    display: block;
-    img{
+  padding-right: 3px;
+  a{
+    display: inline-block;
+    text-decoration: none;
+    span{
+      font-weight: 500;
+      font-size: 9px;
+      color: #C5C5C5;
+      letter-spacing: 0;
+      margin-right: 4px;
+      display: none;
+    }
+    i{
+      display: inline-block;
+      background: #9ED545;
+      border-radius: 8px;
+      width: 16px;
       height: 20px;
+      text-align: center;
+      line-height: 16px;
+      img{
+        width: 8px;
+        height: 8px;
+      }
+    }
+    &:hover {
+      text-decoration: none;
+      span{
+        display: initial;
+      }
+      i{
+        background: #DBE002;
+      }
     }
   }
 }
@@ -137,9 +168,27 @@
     width: 40px;
     height: 45px;
     text-align: center;
-    img{
-      width: 25px;
-      height: 25px;
+    a{
+      width: 40px;
+      height: 45px;
+      background-size: 25px 25px;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: inline-block;
+      &.sticker-face{
+        background-image: url('../img/smiling-emoticon-square-face.png');
+      }
+      &.sticker-file{
+        background-image: url('../img/clip.png');
+      }
+      &:hover{
+        &.sticker-face{
+          background-image: url('../img/smiling-emoticon-square-face-h.png');
+        }
+        &.sticker-file{
+          background-image: url('../img/clip-h.png');
+        }
+      }
     }
   }
 }
@@ -281,6 +330,22 @@
       background: #F5F5F5;
     }
   }
+}
+
+.message-dropzone{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 460px;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(255,255,255,0.80);
+  border: 1px solid #E4E4E4;
+  border-radius: 20px;
+  background-image: url('../img/upload-bg.png');
+  background-size: 100px 89px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .img-link-setting{

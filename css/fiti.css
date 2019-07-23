@@ -3,7 +3,8 @@
   position: relative;
   height: 100%;
   font-family: 'Noto Sans TC', sans-serif;
-  font-weight: 400; }
+  font-weight: 400;
+  overflow-y: hidden; }
 
 .message-box {
   width: 460px;
@@ -99,11 +100,35 @@
     order: 0; }
 
 .scroll-control {
-  text-align: right; }
-  .scroll-control > a {
-    display: block; }
-    .scroll-control > a img {
-      height: 20px; }
+  text-align: right;
+  padding-right: 3px; }
+  .scroll-control a {
+    display: inline-block;
+    text-decoration: none; }
+    .scroll-control a span {
+      font-weight: 500;
+      font-size: 9px;
+      color: #C5C5C5;
+      letter-spacing: 0;
+      margin-right: 4px;
+      display: none; }
+    .scroll-control a i {
+      display: inline-block;
+      background: #9ED545;
+      border-radius: 8px;
+      width: 16px;
+      height: 20px;
+      text-align: center;
+      line-height: 16px; }
+      .scroll-control a i img {
+        width: 8px;
+        height: 8px; }
+    .scroll-control a:hover {
+      text-decoration: none; }
+      .scroll-control a:hover span {
+        display: initial; }
+      .scroll-control a:hover i {
+        background: #DBE002; }
 
 .recent-sticker {
   text-align: left;
@@ -132,9 +157,21 @@
     width: 40px;
     height: 45px;
     text-align: center; }
-    .sticker-menu li img {
-      width: 25px;
-      height: 25px; }
+    .sticker-menu li a {
+      width: 40px;
+      height: 45px;
+      background-size: 25px 25px;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: inline-block; }
+      .sticker-menu li a.sticker-face {
+        background-image: url("../img/smiling-emoticon-square-face.png"); }
+      .sticker-menu li a.sticker-file {
+        background-image: url("../img/clip.png"); }
+      .sticker-menu li a:hover.sticker-face {
+        background-image: url("../img/smiling-emoticon-square-face-h.png"); }
+      .sticker-menu li a:hover.sticker-file {
+        background-image: url("../img/clip-h.png"); }
 
 .message-box-input-textarea {
   padding-left: 10px;
@@ -264,6 +301,21 @@
     padding: 10px; }
     .layout-selector .layout-trigger.active {
       background: #F5F5F5; }
+
+.message-dropzone {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 460px;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #E4E4E4;
+  border-radius: 20px;
+  background-image: url("../img/upload-bg.png");
+  background-size: 100px 89px;
+  background-position: center;
+  background-repeat: no-repeat; }
 
 .img-link-setting {
   padding: 0 10px; }
