@@ -3,20 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cd7cd371-a595-4f7f-b517-3fa1b6ac105a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/css/fiti.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/fiti.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/H1.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/H2.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/H3.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/H4.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/H5.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/H6.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/layout-A.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/layout-B.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/layout-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/layout-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/layout-E.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/layout-F.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/layout-G.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/layout-H.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scss/fiti.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/fiti.scss" afterDir="false" />
     </list>
@@ -70,8 +56,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/layout.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="423">
-                  <caret line="46" column="108" selection-start-line="46" selection-start-column="108" selection-end-line="46" selection-end-column="108" />
+                <state relative-caret-position="911">
+                  <caret line="228" column="47" lean-forward="true" selection-start-line="228" selection-start-column="47" selection-end-line="228" selection-end-column="47" />
                   <folding>
                     <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -87,8 +73,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/scss/fiti.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="877">
-                  <caret line="391" column="1" selection-start-line="391" selection-start-column="1" selection-end-line="391" selection-end-column="1" />
+                <state relative-caret-position="373">
+                  <caret line="276" column="32" selection-start-line="276" selection-start-column="32" selection-end-line="276" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -121,8 +107,8 @@
       <list>
         <option value="$PROJECT_DIR$/js/popper.min.js" />
         <option value="$PROJECT_DIR$/message.html" />
-        <option value="$PROJECT_DIR$/scss/fiti.scss" />
         <option value="$PROJECT_DIR$/layout.html" />
+        <option value="$PROJECT_DIR$/scss/fiti.scss" />
       </list>
     </option>
   </component>
@@ -194,12 +180,12 @@
       <workItem from="1563752684037" duration="2324000" />
       <workItem from="1563755501516" duration="1112000" />
       <workItem from="1563763873819" duration="444000" />
-      <workItem from="1563894950777" duration="4504000" />
+      <workItem from="1563894950777" duration="4888000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19271000" />
+    <option name="totallyTimeSpent" value="19655000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1152" extended-state="6" />
@@ -267,21 +253,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/fiti.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="877">
-          <caret line="391" column="1" selection-start-line="391" selection-start-column="1" selection-end-line="391" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="46" column="108" selection-start-line="46" selection-start-column="108" selection-end-line="46" selection-end-column="108" />
+        <state relative-caret-position="911">
+          <caret line="228" column="47" lean-forward="true" selection-start-line="228" selection-start-column="47" selection-end-line="228" selection-end-column="47" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/fiti.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="276" column="32" selection-start-line="276" selection-start-column="32" selection-end-line="276" selection-end-column="32" />
         </state>
       </provider>
     </entry>
