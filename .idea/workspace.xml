@@ -3,7 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="cd7cd371-a595-4f7f-b517-3fa1b6ac105a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/css/fiti.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/fiti.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/message.html" beforeDir="false" afterPath="$PROJECT_DIR$/message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/H1.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/H2.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/H3.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/H4.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/H5.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/H6.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/H6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/layout-A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/layout-B.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/layout-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/layout-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/layout-E.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/layout-F.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/layout-G.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/layout-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scss/fiti.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/fiti.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,11 +38,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.6297376">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/message.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="869">
-                  <caret line="370" column="55" selection-start-line="370" selection-start-column="55" selection-end-line="370" selection-end-column="55" />
+                <state relative-caret-position="32">
+                  <caret line="339" column="56" selection-start-line="339" selection-start-column="56" selection-end-line="339" selection-end-column="56" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -53,12 +67,13 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/layout.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3726">
-                  <caret line="138" column="43" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
+                <state relative-caret-position="423">
+                  <caret line="46" column="108" selection-start-line="46" selection-start-column="108" selection-end-line="46" selection-end-column="108" />
                   <folding>
+                    <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                   </folding>
                 </state>
@@ -72,8 +87,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/scss/fiti.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="148">
-                  <caret line="225" selection-start-line="225" selection-end-line="225" />
+                <state relative-caret-position="877">
+                  <caret line="391" column="1" selection-start-line="391" selection-start-column="1" selection-end-line="391" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -105,9 +120,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/js/popper.min.js" />
-        <option value="$PROJECT_DIR$/layout.html" />
-        <option value="$PROJECT_DIR$/scss/fiti.scss" />
         <option value="$PROJECT_DIR$/message.html" />
+        <option value="$PROJECT_DIR$/scss/fiti.scss" />
+        <option value="$PROJECT_DIR$/layout.html" />
       </list>
     </option>
   </component>
@@ -179,12 +194,12 @@
       <workItem from="1563752684037" duration="2324000" />
       <workItem from="1563755501516" duration="1112000" />
       <workItem from="1563763873819" duration="444000" />
-      <workItem from="1563894950777" duration="3493000" />
+      <workItem from="1563894950777" duration="4504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18260000" />
+    <option name="totallyTimeSpent" value="19271000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1152" extended-state="6" />
@@ -225,27 +240,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3726">
-          <caret line="138" column="43" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scss/fiti.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="225" selection-start-line="225" selection-end-line="225" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/message.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="869">
-          <caret line="370" column="55" selection-start-line="370" selection-start-column="55" selection-end-line="370" selection-end-column="55" />
+        <state relative-caret-position="32">
+          <caret line="339" column="56" selection-start-line="339" selection-start-column="56" selection-end-line="339" selection-end-column="56" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -265,6 +263,24 @@
             <element signature="n#style#0;n#li#4;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#5;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#6;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/fiti.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="877">
+          <caret line="391" column="1" selection-start-line="391" selection-start-column="1" selection-end-line="391" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="46" column="108" selection-start-line="46" selection-start-column="108" selection-end-line="46" selection-end-column="108" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
