@@ -313,6 +313,8 @@
             -webkit-box-ordinal-group: 2;
             -ms-flex-order: 1;
             order: 1; }
+          .layout-box .layout-preview .layout-preview-phone .layout-preview-phone-content .layout-preview-phone-content-inside.no-text .preview-text {
+            display: none; }
 
 .input-title {
   font-size: 24px;
@@ -544,6 +546,13 @@
   border-width: 0 6px 6px;
   border-top-color: #E3E3E3;
   border-bottom-color: #E3E3E3; }
+
+.dk-select-open-up .dk-select-options, .dk-select-open-down .dk-select-options, .dk-select-multi:focus .dk-select-options {
+  border: none; }
+
+.dk-select-open-up .dk-select-options {
+  -webkit-box-shadow: 0 -10px 20px 0 #C5C5C5;
+  box-shadow: 0 -10px 20px 0 #C5C5C5; }
 
 .dk-select-options {
   font-size: 14px;

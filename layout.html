@@ -186,8 +186,8 @@
                         <div class="col-3">
                             <select name="" id="layout-type">
                                 <option value="">文字在前</option>
-                                <option value="">文字在後</option>
-                                <option value="">沒有文字</option>
+                                <option value="img-first">文字在後</option>
+                                <option value="no-text">沒有文字</option>
                             </select>
                         </div>
                     </div>
@@ -289,7 +289,11 @@
 <script>
     $(function() {
         $("#layout-type").dropkick({
-            mobile: true
+            mobile: true,
+            change: function (value) {
+                value = this.value;
+                $('.layout-preview-phone-content-inside').removeClass('img-first no-text').addClass(value)
+            }
         });
         $("#name-selector").dropkick({
             mobile: true
