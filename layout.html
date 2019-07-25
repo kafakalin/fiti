@@ -54,7 +54,7 @@
                                 <div class="dropzone" id="dropzone" style='display:none'><div class="dz-default dz-message"><span>Drop files here to upload</span></div></div>
                                 <label for="filed3">圖檔上傳：</label>
                                 <div class="input-img-upload">
-                                    <img id='preview' src="img/upload-preview.jpg" alt="" class="img-fluid" />
+                                    <img src="img/upload-preview.jpg" alt="" class="img-fluid preview" />
                                 </div>
                                 <input type="file" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
                             </div>
@@ -254,11 +254,7 @@
                                         </div>
 
                                         <div class="message-item">
-                                            <div class="message-item-inside">
-                                                (!)已經額滿囉(!)【91APP用LINE Pay 結帳最高享11%回饋！】2019/7/10(三) 2019/7/12(五)，於91APP指定店家使用 LINE Pay付款，筆筆享LINE POINTS 10%點數回饋！限量20萬點已發送完畢！<br><br>
-                                                (2 hearts)感謝大家熱情支持<br><br>
-                                                (pencil)活動詳情請至▶https://lin.ee/bjVxckk
-                                            </div>
+                                            <div class="message-item-inside" id='sample'></div>
                                         </div>
                                     </div>
                                     <div class="profile">
@@ -271,7 +267,7 @@
 
                     </div>
                     <div class="preview-img">
-                        <img src="img/preview-img-sample.jpg" alt="">
+                        <img src="img/preview-img-sample.jpg" alt="" class="preview">
                     </div>
                 </div>
             </div>
@@ -292,7 +288,7 @@
             mobile: true,
             change: function (value) {
                 value = this.value;
-                $('.layout-preview-phone-content-inside').removeClass('img-first no-text').addClass(value)
+                $('.layout-preview-phone-content-inside').removeClass('img-first no-text').addClass(value);
             }
         });
         $("#name-selector").dropkick({
@@ -400,6 +396,7 @@
         $("#paragraph").off("click", "a.minus").on("click", "a.minus", function(e) {
             e.preventDefault();
             $(this).parents(".input-text-content-box:first").remove();
+            getContent();
         });
 
         $("#paragraph").off("click", "a.plus").on("click", "a.plus", function(e) {
@@ -408,6 +405,10 @@
             $(obj).find(":input").val("");
             $(obj).appendTo($("#paragraph"));
             moreParagraph();
+        });
+
+        $("#paragraph").off("keyup", "input:text").on("keyup", "input:text", function(e) {
+            getContent();
         });
 
         hiddenMinus();
@@ -422,7 +423,7 @@
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                $('#preview').attr('src', e.target.result);
+                $('img.preview').attr('src', e.target.result);
             }
             reader.readAsDataURL(input.files[0]);
         }
@@ -436,6 +437,16 @@
     function resetDropZone() {
         $("#dropzone").hide();
         $("#dropzone").removeClass("dragenter");
+    }
+
+    function getContent() {
+        var html = [];
+        $("#paragraph").find("input:text").each(function(i) {
+            if (!/^\s*$/.test($(this).val())) {
+                html.push($(this).val());
+            }
+        });
+        $("#sample").html(html.length>0?html.join('<br><br>'):"");
     }
 </script>
 
