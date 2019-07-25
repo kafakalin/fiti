@@ -177,7 +177,7 @@
 
             </section>
 
-            <section>
+            <section class="step3">
                 <div class="input-title">
                     STEP 3.<br><span>編輯訊息內容</span>
                 </div>
@@ -217,9 +217,9 @@
                         </div>
                         <div class="col-4">
                             <div class="shortcode-box">
-                                <input type="text" class="form-control" placeholder="" value="{!LastName}">
-                                <a href="#" class="copy-text">複製</a>
+                                <input id="shortCode" type="text" class="form-control" placeholder="" value="{!LastName}">
                                 <small>請複製貼上到上方文字中你想要的位置即可</small>
+                                <a href="#" class="copy-text">複製</a>
                             </div>
 
                         </div>
@@ -298,6 +298,14 @@
         $("#name-selector").dropkick({
             mobile: true
         });
+
+        $(".copy-text").on('click',function(e){
+            e.preventDefault();
+            var copyText = $("#shortCode");
+            copyText.select();
+            document.execCommand("Copy");
+            alert('已複製代碼');
+        })
 
         $(".input-img-upload").on("click", function(e) {
             e.stopPropagation();
@@ -383,7 +391,6 @@
             $(this).addClass('active');
             $('.link-group').removeClass('active');
             $('.'+actionLink).addClass('active');
-
         })
 
         moreParagraph();

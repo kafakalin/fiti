@@ -266,6 +266,10 @@
   font-weight: 400;
 }
 
+.step3{
+  margin-bottom: 30px;
+}
+
 .layout-box{
   width: 1440px;
   margin: 0 auto;
@@ -274,9 +278,13 @@
   position: relative;
   .layout-input{
     flex: 0 0 66.67%;
-    padding: 25px 30px 50px 30px;
+    padding: 25px 30px 25px 30px;
     height: 100%;
     overflow-y: auto;
+    position: relative;
+    form{
+      height: 100%;
+    }
     section{
       margin-bottom: 50px;
     }
