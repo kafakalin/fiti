@@ -269,6 +269,7 @@
         </div>
     </div>
 </div>
+<div class='modal-backdrop show' id='loading' style='display:none'><img src='img/loading.gif' /></div>
 <img id='preview' />
 <script src="js/jquery-3.3.1.slim.min.js"></script>
 <script src="js/popper.min.js"></script>
@@ -375,6 +376,7 @@
     function sendMessage(tar) {
         var msg = $(tar).val().replace(/(?:\r\n|\r|\n)$/, '');
         if (!/^$/i.test(msg)) {
+            loading();
             $(obj).attr("readonly", true);
             var dt = getNow();
             var tar = $(".customer-message:last");
@@ -391,6 +393,8 @@
 
             $(tar).removeAttr("readonly");
             $("#down").trigger("click");
+            endloading();
+            
         }
     }
 
@@ -408,8 +412,10 @@
     function pad(n) { return n<10 ? '0'+n : n; }
 
     function uploadData(formdata) {
-        alert("upload successful");
+        loading();
+        //alert("upload successful");
         resetDropZone();
+        endloading();
         /*  example to upload
         $.ajax({
             url: 'upload.php',
@@ -429,6 +435,9 @@
         $("#dropzone").hide();
         $("#dropzone").removeClass("dragenter");
     }
+    function loading() { $("#loading").show(); }
+
+    function endloading() { setTimeout(function() { $("#loading").hide(); }, 2000); }
 </script>
 </body>
 </html>
