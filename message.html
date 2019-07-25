@@ -380,18 +380,9 @@
 
         $(".recent-sticker").on("click", "li", function(e) {
             $("#quickbar").remove();
-            $(".message-box-input-textarea").prepend("<div class='sticker-selector active' id='quickbar'><ul class='recent-sticker'></ul></div>");
-            var obj = $(this).clone();
-            $(obj).appendTo($("#quickbar>ul"));
-            $("#quickbar").on("click", "li", function(e) {
-                var imgurl = $(this).attr("style");
-                imgurl = imgurl.substring(21, imgurl.length-2);
-                sendMessage("<img src='"+imgurl+"' />");
-            });
-            $("#quickbar").on("click", function(e) {
-                $(this).remove();
-                e.stopPropagation();
-            })
+            var imgurl = $(this).attr("style");
+            imgurl = imgurl.substring(21, imgurl.length-2);
+            sendMessage("<img src='"+imgurl+"' />");
             e.stopPropagation();
         });
     });
