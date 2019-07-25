@@ -269,7 +269,7 @@
         </div>
     </div>
 </div>
-<div class='modal-backdrop show' id='loading' style='display:none'><img src='img/loading.gif' /></div>
+<div class='modal-backdrop show' id='loading' style='display:none'><img src='img/loader.png' /></div>
 <img id='preview' />
 <script src="js/jquery-3.3.1.slim.min.js"></script>
 <script src="js/popper.min.js"></script>
@@ -400,6 +400,7 @@
             }
             if ($(tar).find(".message-time").html() == dt) {
                 $(tar).find(".message-time").remove();
+                $(tar).addClass("noTime")
             }
             $(obj).find(".message-item-inside").html(msg.replace(/(?:\r\n|\r|\n)/g, '<br>'));
             $(obj).find(".message-time").html(dt);
