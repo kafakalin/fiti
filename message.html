@@ -294,7 +294,7 @@
 
         $("#chat").on("keyup", function(e) {
             if (e.keyCode == 13 && !e.shiftKey) {
-                sendMessage($(this));
+                sendMessage($(this).val());
                 $(this).val("");
             }
         });
@@ -370,17 +370,40 @@
         $('.sticker-face').on('click',function(e){
             e.preventDefault();
             $('.sticker-selector').toggleClass('active');
-        })
+        });
+
+        $(".sticker-list").on("click", "li", function(e) {
+            sendMessage($(this).html());
+            $('.sticker-face').trigger("click");
+            e.stopPropagation();
+        });
+
+        $(".recent-sticker").on("click", "li", function(e) {
+            $("#quickbar").remove();
+            $(".message-box-input-textarea").prepend("<div class='sticker-selector active' id='quickbar'><ul class='recent-sticker'></ul></div>");
+            var obj = $(this).clone();
+            $(obj).appendTo($("#quickbar>ul"));
+            $("#quickbar").on("click", "li", function(e) {
+                var imgurl = $(this).attr("style");
+                imgurl = imgurl.substring(21, imgurl.length-2);
+                sendMessage("<img src='"+imgurl+"' />");
+            });
+            $("#quickbar").on("click", function(e) {
+                $(this).remove();
+                e.stopPropagation();
+            })
+            e.stopPropagation();
+        });
     });
 
-    function sendMessage(tar) {
-        var msg = $(tar).val().replace(/(?:\r\n|\r|\n)$/, '');
+    function sendMessage(content) {
+        var msg = content.replace(/(?:\r\n|\r|\n)$/, '');
         if (!/^$/i.test(msg)) {
             loading();
-            $(obj).attr("readonly", true);
             var dt = getNow();
             var tar = $(".customer-message:last");
             var obj = $(tar).clone();
+            $("#chat").attr("readonly", true);
             if ($(tar).index() == ($(".message-group").length-1)) {
                 $(tar).find(".profile>img").remove();
             }
@@ -391,10 +414,9 @@
             $(obj).find(".message-time").html(dt);
             $(obj).appendTo("div.simplebar-content");
 
-            $(tar).removeAttr("readonly");
+            $("#chat").removeAttr("readonly");
             $("#down").trigger("click");
             endloading();
-            
         }
     }
 
