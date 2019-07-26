@@ -487,8 +487,13 @@
                 html.push($(this).val());
             }
         });
-        $("#sample").html(html.length>0?html.join('<br><br>'):"");
-        $("#sample").parent(".message-item").removeClass('init');
+        if (html.length>0) {
+            $("#sample").html(html.join('<br><br>'));
+            $("#sample").parent(".message-item").removeClass('init');
+        }
+        else {
+            $("#sample").parent(".message-item").addClass('init')
+        }
     }
 </script>
 
