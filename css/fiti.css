@@ -400,7 +400,32 @@
   margin-bottom: 50px; }
 
 .input-img-upload {
-  margin-top: 10px; }
+  margin-top: 10px;
+  position: relative; }
+  .input-img-upload span {
+    position: absolute;
+    display: block;
+    padding: 3px 10px;
+    background: rgba(255, 255, 255, 0.8);
+    top: 5px;
+    right: 10px;
+    font-size: 11px;
+    color: #83B335;
+    letter-spacing: 0; }
+  .input-img-upload #dropzone {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #E4E4E4;
+    border-radius: 20px;
+    background-image: url("../img/upload-bg.png");
+    background-size: 100px 89px;
+    background-position: center;
+    background-repeat: no-repeat; }
 
 .layout-selector {
   margin-bottom: 42px; }
@@ -489,7 +514,15 @@
   width: 110px; }
 
 .input-form-group {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  position: relative; }
+  .input-form-group .input-delete {
+    position: absolute;
+    bottom: 12px;
+    right: 10px;
+    font-size: 11px;
+    color: #83B335;
+    letter-spacing: 0; }
   .input-form-group small {
     font-weight: 500;
     font-size: 11px;

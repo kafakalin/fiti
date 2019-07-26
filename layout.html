@@ -50,11 +50,22 @@
                     <div class="img-link-setting">
                         <div class="row">
                             <div class="col-lg-5 col-md-12">
+
                                 <div class="form-group input-form-group">
-                                    <div class="dropzone" id="dropzone" style='display:none'><div class="dz-default dz-message"><span>Drop files here to upload</span></div></div>
+                                    <label for="">附加檔：</label>
+                                    <label class="btn btn-white">
+                                        <input id="upload_file" style="display:none;" type="file">
+                                        <i class="fa fa-photo"></i> 上傳檔案
+                                    </label>
+                                </div>
+
+                                <div class="form-group input-form-group">
+
                                     <label for="filed3">圖檔上傳：</label>
                                     <div class="input-img-upload">
+                                        <div class="dropzone" id="dropzone" style='display:none'><div class="dz-default dz-message"></div></div>
                                         <img src="img/upload-preview.jpg" alt="" class="img-fluid preview" />
+                                        <span>刪除</span>
                                     </div>
                                     <input type="file" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
                                 </div>
@@ -62,7 +73,9 @@
                                 <div class="form-group input-form-group">
                                     <label for="filed4">圖檔網址：</label>
                                     <input type="text" class="form-control url" placeholder="https://">
+                                    <span class="input-delete">刪除</span>
                                 </div>
+
                             </div>
                             <div class="col-lg-7 col-md-12">
                                 <div class="form-group input-form-group">
@@ -249,6 +262,9 @@
                                     <div class="message-group user-message">
                                         <div class="messages">
                                             <div class="user-name">Kevin Chen</div>
+                                            <div class="message-item init" id="upload_file_show">
+                                                <div class="message-item-inside"></div>
+                                            </div>
                                             <div class="message-item">
                                                 <div class="message-item-inside">您所輸入的訊息文字將會顯示在這邊！</div>
                                             </div>
@@ -256,7 +272,6 @@
                                             <div class="message-item init">
                                                 <div class="message-item-inside" id='sample'></div>
                                             </div>
-
                                         </div>
                                         <div class="profile">
                                             <img src="img/user_pic.png" alt="">
@@ -284,7 +299,15 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/dropkick.js"></script>
 <script>
+    var filename;
+
     $(function() {
+        $('#upload_file').change(function(e){
+            fileName = e.target.files[0].name;
+            console.log(fileName);
+            $('#upload_file_show').removeClass('init').find('.message-item-inside').html('<img src="../img/clip-w.png" style="margin-right: 5px;" width="16" height="16">附加檔案：'+fileName);
+        });
+
         $("#layout-type").dropkick({
             mobile: true,
             change: function (value) {
