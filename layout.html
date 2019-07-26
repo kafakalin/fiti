@@ -282,8 +282,8 @@
                             </div>
 
                         </div>
-                        <div class="preview-img">
-                            <img src="img/preview-img-sample.jpg" alt="" class="preview">
+                        <div class="preview-img" style='display:none'>
+                            <img id="sampleImg" src="" alt="">
                         </div>
                     </div>
                 </div>
@@ -427,6 +427,7 @@
 
         $("span.img-delete").on("click", function(e) {
             $("img.preview").attr("src", "img/upload-preview.jpg");
+            $("#sampleImg").parent().hide();
             e.stopPropagation();
         });
 
@@ -465,6 +466,8 @@
             var reader = new FileReader();
             reader.onload = function(e) {
                 $('img.preview').attr('src', e.target.result);
+                $('#sampleImg').attr('src', e.target.result);
+                $("#sampleImg").parent().show();
             }
             reader.readAsDataURL(input.files[0]);
         }
