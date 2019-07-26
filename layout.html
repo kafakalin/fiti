@@ -427,6 +427,7 @@
 
         $("span.img-delete").on("click", function(e) {
             $("img.preview").attr("src", "img/upload-preview.jpg");
+            $(".dz-hidden-input").val("");
             $("#sampleImg").parent().hide();
             e.stopPropagation();
         });
