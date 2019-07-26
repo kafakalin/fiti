@@ -324,7 +324,10 @@
             var copyText = $("#shortCode");
             copyText.select();
             document.execCommand("Copy");
-            alert('已複製代碼');
+            $("<i class='copy-success'>已複製成功</i>").insertAfter($(this))
+            setTimeout(function(){
+                $(".copy-success").remove()
+            }, 2000);
         })
 
         $(".input-img-upload").on("click", function(e) {
@@ -471,7 +474,7 @@
             }
         });
         $("#sample").html(html.length>0?html.join('<br><br>'):"");
-        $(".message-item").removeClass('init')
+        $("#sample").parent(".message-item").removeClass('init');
     }
 </script>
 
