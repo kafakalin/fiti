@@ -355,7 +355,7 @@
             var file = e.originalEvent.dataTransfer.files;
             var fd = new FormData();
             fd.append('file', file[0]);
-            uploadData(fd);
+            uploadData(fd, file[0].name);
         });
 
         $(".dz-hidden-input").on("change", function(e){
@@ -363,7 +363,7 @@
                 var fd = new FormData();
                 var files = $('.dz-hidden-input')[0].files[0];
                 fd.append('file',files);
-                uploadData(fd);    
+                uploadData(fd, files.name);
             }
         });
 
@@ -425,9 +425,9 @@
 
     function pad(n) { return n<10 ? '0'+n : n; }
 
-    function uploadData(formdata) {
+    function uploadData(formdata, fileName) {
         loading();
-        //alert("upload successful");
+        sendMessage("附件檔案:"+fileName);
         resetDropZone();
         endloading();
         /*  example to upload

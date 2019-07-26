@@ -65,7 +65,7 @@
                                     <div class="input-img-upload">
                                         <div class="dropzone" id="dropzone" style='display:none'><div class="dz-default dz-message"></div></div>
                                         <img src="img/upload-preview.jpg" alt="" class="img-fluid preview" />
-                                        <span>刪除</span>
+                                        <span class='img-delete'>刪除</span>
                                     </div>
                                     <input type="file" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
                                 </div>
@@ -303,9 +303,12 @@
 
     $(function() {
         $('#upload_file').change(function(e){
-            fileName = e.target.files[0].name;
-            console.log(fileName);
-            $('#upload_file_show').removeClass('init').find('.message-item-inside').html('<img src="../img/clip-w.png" style="margin-right: 5px;" width="16" height="16">附加檔案：'+fileName);
+            var fileName = $(this).val();
+            $('#upload_file_show').addClass('init');
+            if (!/^\s*$/.test(fileName)) {
+                $('#upload_file_show').removeClass('init');
+                $('#upload_file_show').find('.message-item-inside').html('<img src="../img/clip-w.png" style="margin-right: 5px;" width="16" height="16">附加檔案：'+fileName);
+            }
         });
 
         $("#layout-type").dropkick({
@@ -414,7 +417,18 @@
             $(this).addClass('active');
             $('.link-group').removeClass('active');
             $('.'+actionLink).addClass('active');
-        })
+        });
+
+        $(".img-link-setting").on("click", ".input-delete", function(e) {
+            $(this).parent().find("input").val("");
+            $(this).parent().find("label.error").remove();
+            e.stopPropagation();
+        });
+
+        $("span.img-delete").on("click", function(e) {
+            $("img.preview").attr("src", "img/upload-preview.jpg");
+            e.stopPropagation();
+        });
 
         moreParagraph();
     });
