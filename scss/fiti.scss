@@ -25,14 +25,34 @@
   }
   .message-box-input{
     height: 200px;
+    &.message-box-input-static{
+      height: 15%;
+      position: relative;
+      .message-box-input-textarea{
+        position: relative;
+        height: 100%;
+        padding-bottom: 15px;
+        textarea{
+          height: calc(100% - 48px);
+        }
+
+      }
+    }
   }
   .message-box-messages{
-    height: calc(100% - 200px);
-    padding: 18px 38px 0px 12px;
+    height: calc(100% - 220px);
+    padding: 18px 12px 0px 12px;
+    overflow-y: scroll;
+    border-bottom: 1px solid #ddd;
+    //margin-bottom: 220px;
+    &.message-box-messages-static{
+      height: 85%;
+    }
   }
 }
+
 .message-item{
-  display: inline-block;
+  display: flex;
   .message-item-inside{
     text-align: left;
     font-size: 13px;
@@ -71,6 +91,7 @@
 }
 .customer-message{
   .message-item{
+    justify-content: flex-end;
     .message-item-inside {
       background-image: linear-gradient(135deg, #DCFFA2 0%, #B7F357 100%);
     }
@@ -130,6 +151,10 @@
 .scroll-control{
   text-align: right;
   padding-right: 3px;
+  &.scroll-control-static{
+    float: right;
+    display: inline-block;
+  }
   a{
     display: inline-block;
     text-decoration: none;
@@ -186,6 +211,11 @@
   display: inline-block;
   margin: 0px 10px 0 0;
   padding: 0px;
+  &.sticker-menu-static{
+    float: left;
+    margin: 0 0 0 10px;
+  }
+
   li{
     list-style: none;
     line-height: 45px;
