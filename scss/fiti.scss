@@ -26,19 +26,20 @@
   .message-box-input{
     height: 200px;
     &.message-box-input-static{
-      height: 15%;
+      height: 142px;
       position: relative;
       .message-box-input-textarea{
         position: relative;
         height: 100%;
         padding-bottom: 15px;
         textarea{
-          height: calc(100% - 48px);
+          height: 94px;
         }
 
       }
     }
   }
+
   .message-box-messages{
     height: calc(100% - 220px);
     padding: 18px 12px 0px 12px;
@@ -46,7 +47,7 @@
     border-bottom: 1px solid #ddd;
     //margin-bottom: 220px;
     &.message-box-messages-static{
-      height: 85%;
+      height: calc(100% - 142px);
     }
   }
 }
@@ -368,6 +369,14 @@
     }
     .layout-preview-phone{
       position: relative;
+      &.noimg{
+        .layout-preview-phone-content .layout-preview-phone-content-inside .preview-text{
+          height: 100%;
+        }
+        .layout-preview-phone-content .layout-preview-phone-content-inside .preview-img{
+          display: none;
+        }
+      }
       .layout-preview-phone-bg{
         img{
           width: 100%;
